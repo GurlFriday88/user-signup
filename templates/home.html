@@ -4,21 +4,26 @@
 
 <form>
     <label>User Name    <!--Username-->
-        <input type="text" name="user_name">      
+        <input type="text" name="user_name" value={{user_name}}>      
     </label>
+        {{error}}
 
     <label>Password <!--password-->
-        <input type="password" name="password">    
+        <input type="password" name="verify_password" value={{password}}>        
     </label>
-
+         {{error}}
     <label>Verify Password <!--verify password-->
-        <input type="password" name="verify_password">        
+        <input type="password" name="verify_password" value={{verify_password}}>        
     </label>
-
+         {{error}}
     <label>Email (optional)<!--email-->
-        <input type="text" name="email">    
+        <input type="text" name="email" value={{email}}>    
     </label>
+         {{error}}
     <input type="submit" value="Submit">
 </form>
 
 {% endblock %}
+
+/*Still need to make error message show up under the correct 
+*/
