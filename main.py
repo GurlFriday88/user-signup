@@ -21,10 +21,11 @@ app.config['DEBUG']=True
 #routes to home screen showing form 
 @app.route('/home')
 def make_home():
+    
     return render_template('home.html', title="User signup")
 
 #processes form to check for correct input length an to ensure there are no spaces
-@app.route('/home', methods=['post'])
+@app.route('/home', methods=['POST'])
 def process_form():
     # need to make conditional to process form if method is get or post 
     if request.method =='POST':
