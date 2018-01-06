@@ -18,8 +18,8 @@ def validate(form_input):
     elif "" in form_value:  # check for spaces
         error = "Enter {name} without spaces"
     return error.format(name="form_input")
-    else:
-        return error
+    
+    return error
 
 
 #routes to home screen showing form 
@@ -43,12 +43,12 @@ def make_home():
         verify_pass_error= validate(verify_password)
         
         #compare password to verify password
-        if verify_password not password:
+        if verify_password not in password:
             compare_pass_error="Password confirmation does not match"
         #check for email input
         if email == email:
             #check for @ and . symbols
-            if [@,.] not in email:
+            if "@" or ".com" not in email:
                 email_error="Email must contain both @ and ."
             else:
                 email_error=validate(email) #complete email validation 
