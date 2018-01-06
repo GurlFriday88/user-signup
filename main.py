@@ -50,7 +50,7 @@ def make_home():
         if email:
             #check for @ and . symbols
             if not re.search(r"([a-z]+[@]+[a-z]+[.]+[a-z])", email):
-                email_error="Email must contain a domain name, @ and .com"
+                email_error="Email must contain a domain name, @ and ."
             else:
                 email_error = validate(email).format(
                     name="Email")  # complete email validation
@@ -62,7 +62,7 @@ def make_home():
                 email_error
             ):
             return redirect('welcome?user_name={0}'.format(user_name))
-        return render_template('home.html',
+        return render_template('home2.html',
                                username_error=user_name_error,
                                password_error=password_error,
                                verify_pass_error=verify_pass_error,
@@ -70,7 +70,7 @@ def make_home():
                                email_error=email_error,
                                 user_name=user_name,
                             )    
-    return render_template('home.html', title="User signup")
+    return render_template('home2.html', title="User signup")
 
 @app.route('/welcome')
 def welcome_user():
