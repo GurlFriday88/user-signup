@@ -12,12 +12,14 @@ def validate(form_input):
     if not form_input:
         error = "Enter {name}"
 
-    if len(form_value) < 2 or len(form_value) > 19:  # check for length
+    elif len(form_value) < 2 or len(form_value) > 19:  # check for length
         error = "Enter a value between (3-20) characters"
 
-    if "" in form_value:  # check for spaces
+    elif "" in form_value:  # check for spaces
         error = "Enter {name} without spaces"
     return error.format(name="form_input")
+    else:
+        return error
 
 
 #routes to home screen showing form 
