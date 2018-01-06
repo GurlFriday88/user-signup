@@ -18,7 +18,7 @@ def validate(form_input):
 
     elif " " in form_value:  # check for spaces
         error = "Enter {name} without spaces"
-    return error.format(name="form_value")
+    return error
     
    
 
@@ -39,9 +39,9 @@ def make_home():
         compare_pass_error=""
         email_error=""
         # #checks for validation of username, password, and verify pass
-        user_name_error= validate(user_name)
-        password_error= validate(password)
-        verify_pass_error= validate(verify_password)
+        user_name_error= validate(user_name).format(name="Username")
+        password_error = validate(password).format(name="Password")
+        verify_pass_error = validate(verify_password).format(name="Verify Password")
         
         # #compare password to verify password
         if verify_password not in password:
@@ -50,9 +50,10 @@ def make_home():
         if email:
             #check for @ and . symbols
             if not re.search(r"([a-z]+[@]+[a-z]+[.]+[a-z])", email):
-                email_error="Email must contain both @ and .com"
+                email_error="Email must contain a domain name, @ and .com"
             else:
-                email_error=validate(email) #complete email validation 
+                email_error = validate(email).format(
+                    name="Email")  # complete email validation
         #checks for empty error messages. If the validation passed the welcome page will be generated 
         if not (user_name_error or
                 password_error or
